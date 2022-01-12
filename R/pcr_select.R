@@ -9,6 +9,7 @@
 #' @return A list containing rmse and number od components selected of pcr model.
 #' @export
 #'
+#' @import pls
 #' @importFrom pls pcr validationplot
 #'
 #' @examples
@@ -19,8 +20,6 @@
 #' res <- pcr_select("hp", train, test)
 pcr_select <- function(responseVar, train, test)
 {
-  pacman::p_load(pls)
-
   full_formula = as.formula(paste(responseVar, "~."))
 
   pcr_m <- pcr(full_formula, data = train, scale = T, validation = "CV")

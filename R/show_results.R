@@ -21,13 +21,15 @@ show_results <- function()
 
   # wykonanie metod selekcji
 
-  res_mtcars <- projekt::compare_select(mtcars, "hp", 3)
+  res_mtcars <- projekt::compare_select(datasets::mtcars, "hp", 3)
 
   res_wine <- projekt::compare_select(wine, "quality", 4)
 
   res_student <- projekt::compare_select(stud, "G3", 12)
 
   # przedstawienie rezultatow
+
+  cat("\n", "MTCARS", "\n")
 
   # rmse
   print(res_mtcars[[1]])
@@ -39,6 +41,8 @@ show_results <- function()
   cat("rforest model features: ", res_mtcars[[5]], "\n", sep = " ", fill = T) # zmienne wybrane dla analizy istotnosci zmiennych przy uzyciu algorytmu randomForest
   cat("\n\n")
 
+  cat("\n", "WINE", "\n")
+
   # rmse
   print(res_wine[[1]])
 
@@ -48,6 +52,8 @@ show_results <- function()
   cat("pcr model components count: ", res_wine[[4]], "\n", sep = " ", fill = T) # ilosc skladowych glownych dla pcr
   cat("rforest model features: ", res_wine[[5]], "\n", sep = " ", fill = T) # zmienne wybrane dla analizy istotnosci zmiennych przy uzyciu algorytmu randomForest
   cat("\n\n")
+
+  cat("\n", "STUDENT", "\n")
 
   # rmse
   print(res_student[[1]])
